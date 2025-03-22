@@ -1,0 +1,49 @@
+
+body {
+    font: normal 15pt arial;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+h2 {
+    text-align: center;
+}
+
+.conversor {
+    background-color: rgb(230, 230, 230);
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    width: 500px;
+    height: 130px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.resultado {
+    display: none;
+}
+
+select, input{
+    border: none;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+button {
+    border: none;
+    height: 23px;
+    width: 100px;
+    cursor: pointer;
+    background-color: rgb(16, 16, 80);
+    color: white;
+    border-radius: 10px;
+}
