@@ -36,7 +36,6 @@
             <button id="converterButton">Converter</button>
         </div>
 
-        <!-- Resultado e Passo a Passo -->
         <div class="resultado" id="resultadoContainer" style="display: none;">
             <h3>Resultado:</h3>
             <p id="resultado"></p>
@@ -47,8 +46,8 @@
     </main>
 
     <script>
-        // Função para converter os números entre bases
-function converter() {
+        // function for convert number to bases 
+    function converter() {
     let numero = document.getElementById("numero").value.trim();
     let baseOrigem = parseInt(document.getElementById("baseOrigem").value);
     let baseDestino = parseInt(document.getElementById("baseDestino").value);
@@ -56,7 +55,7 @@ function converter() {
     let resultadoElement = document.getElementById("resultado");
     let passosElement = document.getElementById("passos");
 
-    // Se o campo estiver vazio, avisa e não exibe resultado
+    // if void, alert and don't show result
     if (numero === "") {
         alert("Por favor, insira um número válido.");
         return;
@@ -69,11 +68,12 @@ function converter() {
         let resultado = numeroDecimal.toString(baseDestino).toUpperCase();
         resultadoElement.textContent = `O número convertido é: ${resultado}`;
 
-        // Exibir passo a passo
+        // shows step by step
         let passos = `Convertendo ${numero} da base ${baseOrigem} para a base ${baseDestino}:\n\n`;
 
+        // this `if` block is handling the conversion process from a binary number to a decimal number.
         if (baseOrigem === 2 && baseDestino === 10) {
-            // Passo a passo Binário -> Decimal
+            // step by step Binário -> Decimal
             let binArray = numero.split("").reverse();
             let soma = 0;
             for (let i = 0; i < binArray.length; i++) {
@@ -84,7 +84,7 @@ function converter() {
             passos += `Resultado final: ${soma}`;
         } 
         else if (baseOrigem === 10 && baseDestino === 2) {
-            // Passo a passo Decimal -> Binário
+            // step by step Decimal -> Binário
             let temp = numeroDecimal;
             while (temp > 0) {
                 let resto = temp % 2;
@@ -94,7 +94,7 @@ function converter() {
             passos += `Resultado final: ${resultado}`;
         }
         else if (baseOrigem === 10 && baseDestino === 16) {
-            // Passo a passo Decimal -> Hexadecimal
+            // step by step Decimal -> Hexadecimal
             let temp = numeroDecimal;
             while (temp > 0) {
                 let resto = temp % 16;
@@ -105,7 +105,7 @@ function converter() {
             passos += `Resultado final: ${resultado}`;
         }
         else if (baseOrigem === 16 && baseDestino === 10) {
-            // Passo a passo Hexadecimal -> Decimal
+            // step by step Hexadecimal -> Decimal
             let hexArray = numero.toUpperCase().split("").reverse();
             let soma = 0;
             for (let i = 0; i < hexArray.length; i++) {
@@ -114,20 +114,25 @@ function converter() {
                 passos += `${hexArray[i]} × 16^${i} = ${valor}\n`;
             }
             passos += `Resultado final: ${soma}`;
-        } else {
+        } else if (baseOrigem === 2 && baseDestino === 16) {
+            // step by step Binário -> Hexadecimal
+        } 
+        
+        
+        else {
             passos = "Conversão direta não implementada.";
         }
 
         passosElement.textContent = passos;
 
-        // Exibir o resultado
+        // shows result
         resultadoContainer.style.display = "block";
     } catch (error) {
         alert(error);
     }
 }
 
-// Adicionar o evento de clique para o botão
+// add click event
 document.getElementById("converterButton").addEventListener("click", function() {
     converter();
 });
