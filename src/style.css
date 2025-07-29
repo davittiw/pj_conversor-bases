@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    -ms-overflow-style: none;
+    margin: 0;
+    color: #fff;
+    background-color: #000;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    width: 100vw;
+    background-color: #007bff05;
+    height: 60px;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    border-radius: 0px 0px 10px 10px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.icon {
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.icon p {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--titulo-blue);
+}
+
+nav {
+    width: 30%;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+nav ul li:hover {
+    color: var(--titulo-blue);
+}
+
+.arrow {
+    position: absolute;
+    z-index: 50;
+    top: 80%;
+    animation: moverSeta 1s infinite alternate ease-in-out;
+}
+
+.arrow:hover {
+    color: var(--titulo-blue);
+}
+
+@keyframes moverSeta {
+    0% { transform: translateY(0);}
+    100% { transform: translateY(10px);}
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+    min-height: 100vh;
+}
+
+main {
+    width: 500px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h2 {
+    font-weight: 900;
+    font-size: 25px;
+}
+
+.conversor {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.titulo {
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--titulo-blue);
+}
+
+.escreve {
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    color: black;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--titulo-blue);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.resultado {
+    width: 80%;
+    margin-top: 20px;
+    text-align: center;
+    border: 2px solid;
+    padding: 10px;
+    background-color: #000;
+    border-color: #007BFF;
+    border-radius: 5px;
+}
+
+.resultado h3 {
+    font-weight: 600;
+    margin-top: 5px;
+}
